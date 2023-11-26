@@ -1,34 +1,146 @@
-import i18n from "i18next"
-import { initReactI18next } from "react-i18next"
-
-const resources= {
-    eng: {
-        translation: {
-            "Chuyến bay":"Flight",
-            "Khách sạn": "Hotel",
-            "Chuyến bay + khách sạn": "Combo",
-            "Vé máy bay": "Airline tickets",
-            "Phòng khách sạn": "Hotel rooms"
-        }
-    },
-    vie: {
-        translation: {
-            "Chuyến bay": "Chuyến bay",
-            "Khách sạn": "Khách sạn",
-            "Chuyến bay + khách sạn": "Chuyến bay + khách sạn",
-            "Vé máy bay": "Vé máy bay",
-            "Phòng khách sạn": "Phòng khách sạn"
-        }
-    }
-}
+// i18n.js
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
 i18n
-.use(initReactI18next)
-.init({
-    resources,
-    lng: localStorage.getItem("lang") ? localStorage.getItem("lang").toLocaleLowerCase() : "vie",
-    interpolation: {
-        escapeValue: false
-    }
-})
-export default i18n
+    .use(initReactI18next)
+    .init({
+        resources: {
+            en: {
+                translation: {
+                    "Vé máy bay": "Flight",
+                    "Khách sạn này chỉ đơn giản là quá tuyệt vời, không thể không cám ơn Hiragana đã giúp tôi chọn lựa khách sạn tốt. Tôi là khách hàng thường xuyên của Hiragana và phải công nhận là Hiragana là ứng dụng yêu thích của tôi!": "This hotel is simply amazing, I can't help but thank Hiragana for helping me choose a good hotel. I am a regular customer of Hiragana and I must admit that Hiragana is my favorite app!",
+                    "Chúng tôi tự hào vì": "We're proud",
+                    "Bạn chưa có tài khoản ?": "You have not an account ? ",
+                    already_account: "You have an account ?",
+                    confirm_password: "Confirm Password",
+                    name: "Name", 
+                    surname: "Surname",
+                    signup: "Sign up",
+                    "Manage app": "Manage app",
+                    "Đăng nhập tài khoản": "Login your account",
+                    "Email hoặc số điện thoại": "Email or phonenumber",
+                    "Chuyến bay": "Flight",
+                    "Username": "Username",
+                    "Email": "Email",
+                    'Phonenumber': "Phonenumber",
+                    "Khách sạn": "Hotel",
+                    "Đăng nhập": "Login",
+                    welcome: 'Welcome to',
+                    home: "Home",
+                    account_connect: "Account connect",
+                    login_header: "Login To Points Store",
+                    login_header_2: "Login with email",
+                    placeholder_email: "Your Email Address",
+                    placeholder_password: "Your Password Address",
+                    remember_me: "Remember me",
+                    "password": "Password",
+                    forgot_password: "Forgot Password",
+                    login: "Login",
+                    pages: "Pages",
+                    Home: "Home",
+                    owning: "Owning",
+                    "Welcome to": "Welcome To",
+                    "Trade a lot to get more points (1000 trading volume = 1000 points)": "Trade a lot to get more points (1000 trading volume = 1000 points)",
+                    explore_more: "Explore More",
+                    en: "English",
+                    vi: "Vietnamese",
+                    "Hoặc đăng nhập bằng": "Or login with",
+                    "Chuyến bay thành công": "Flight success",
+                    "Khách sạn đặt thành công": "Hotel booking success",
+                    "Combo được đặt thành công": "Combo booking success", 
+                    "Tiếng lành đồn xa": "Good news spread far and wide",
+                    "Phòng khách sạn": "Hotel",
+                    "Một chiều / Khứ hồi": "One way / Round trip",
+                    "from": "From",
+                    "to": "To",
+                    "passenger": "Passenger",
+                    "Tìm chuyến bay": "Search flight",
+                    "Những chỗ nghỉ nổi bật khuyến nghị cho bạn": "Featured accommodations recommended for you",
+                    "Ngày đi": "Date of department",
+                    "Ngày đến": "Date of arrive",
+                    "Hạng ghế": "Seat class",
+                    "Phổ thông": "Economy",
+                    "Phổ thông đặc biệt": "Premium Economy",
+                    "Thương gia": "Business",
+                    "Hạng nhất": "First Class",
+                    "Hành lí": "Luggage",
+                    // Add more English translations as needed
+                },
+            },
+            vi: {
+                translation: {
+                    "Hành lí": "Hành lí",
+                    "Hạng nhất": "Hạng nhất",
+                    "Thương gia": "Thương gia",
+                    "Phổ thông đặc biệt": "Phổ thông đặc biệt",
+                    "Phổ thông": "Phổ thông",
+                    "Hạng ghế": "Hạng ghế",
+                    "Ngày đi": "Ngày đi",
+                    "Ngày đến": "Ngày đến",
+                    "Những chỗ nghỉ nổi bật khuyến nghị cho bạn": "Những chỗ nghỉ nổi bật khuyến nghị cho bạn",
+                    "Tìm chuyến bay": "Tìm chuyến bay",
+                    passenger: "Số hành khách",
+                    "from": "Từ",
+                    "to": "Đến",
+                    "Một chiều / Khứ hồi": "Một chiều / Khứ hồi",
+                    "Phòng khách sạn": "Phòng khách sạn",
+                    "Vé máy bay": "Vé máy bay",
+                    "Khách sạn này chỉ đơn giản là quá tuyệt vời, không thể không cám ơn Hiragana đã giúp tôi chọn lựa khách sạn tốt. Tôi là khách hàng thường xuyên của Hiragana và phải công nhận là Hiragana là ứng dụng yêu thích của tôi!": "Khách sạn này chỉ đơn giản là quá tuyệt vời, không thể không cám ơn Hiragana đã giúp tôi chọn lựa khách sạn tốt. Tôi là khách hàng thường xuyên của Hiragana và phải công nhận là Hiragana là ứng dụng yêu thích của tôi!",
+                    "Tiếng lành đồn xa": "Tiếng lành đồn xa",
+                    "Combo được đặt thành công": "Combo được đặt thành công",   
+                    "Khách sạn đặt thành công": "Khách sạn đặt thành công",
+                    "Chuyến bay thành công": "Chuyến bay thành công",
+                    "Chúng tôi tự hào vì": "Chúng tôi tự hào vì",
+                    "Bạn chưa có tài khoản ?": "Bạn chưa có tài khoản ?",
+                    already_account: "Bạn đã có tài khoản ?",
+                    "Hoặc đăng nhập bằng": "Hoặc đăng nhập bằng",
+                    surname: "Họ",
+                    confirm_password: "Xác nhận mật khẩu",
+                    name: "Tên",
+                    signup: "Đăng ký",
+                    "Đăng nhập tài khoản": "Đăng nhập tài khoản",
+                    "Phonenumber": "Số điện thoại",
+                    "Email hoặc số điện thoại": "Email hoặc số điện thoại",
+                    "Manage app": "Quản lý web",
+                    "Chuyến bay": "Chuyến bay",
+                    "Khách sạn": "Khách sạn",
+                    "Username": "Tên tài khoản",
+                    "Email": "Email",
+                    welcome: 'Chào mừng bạn đến với',
+                    home: "Trang chủ",
+                    "password": "Mật khẩu",
+                    "Đăng nhập": "Login",
+                    account_connect: "Kết nối tài khoản",
+                    login_header: "Đăng Nhập Vào Hệ Thống",
+                    login_header_2: "Đăng nhập bằng gmail",
+                    placeholder_email: "Tài khoản email của bạn",
+                    placeholder_password: "Mật khẩu của bạn",
+                    remember_me: "Nhớ mật khẩu",
+                    forgot_password: "Quên mật khẩu",
+                    login: "Đăng nhập",
+                    pages: "Trang",
+                    Home: "Trang chủ",
+                    owning: "Người bán",
+                    "Welcome to": "Chào mừng bạn đến với",
+                    "Trade a lot to get more points (1000 trading volume = 1000 points)": "Giao dịch nhiều để nhận được nhiều điểm hơn (1000 khối lượng giao dịch = 1000 điểm)",
+                    explore_more: "Khám phá thêm",
+                    en: "Tiếng Anh",
+                    vi: "Tiếng Việt",
+
+                    // Add more Vietnamese translations as needed
+                },
+            },
+            // Add more languages and translations as needed
+        },
+        lng: localStorage.getItem("lang") || 'en',
+        fallbackLng: 'en',
+        interpolation: {
+            escapeValue: false,
+        },
+    });
+export const setLanguageToLocalStorage = (lng) => {
+    localStorage.setItem("lang", lng);
+};
+
+export default i18n;

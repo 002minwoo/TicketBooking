@@ -1,6 +1,8 @@
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ClassSeatComponent= memo((props)=> {
+    const {t }= useTranslation()
     const [opensuggest, setopensuggest]= useState(()=> false)
     const seat= useMemo(()=> [{v: "Phổ thông", e: "ECONOMY"}, {v: "Phổ thông cao cấp", e: "PREMIUM_ECONOMY"}, {v: "Thương gia", e: "BUSINESS"}, {v: "Hạng nhất", e: "FIRST"}], [])
     const myRef= useRef()
@@ -15,7 +17,7 @@ const ClassSeatComponent= memo((props)=> {
     }, [])
     return (
         <div className="cs-2">
-            <div className="wo-1">Hạng ghế</div>
+            <div className="wo-1">{t("Hạng ghế")}</div>
             <div className="gr-1" ref={myRef} onClick={()=> setopensuggest(()=> true)} style={{ outline: opensuggest=== true ? "2px solid #2e89ff" : "none"}}>
                 <div className="ic-1">
                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/c/c6fbc7de62382bf792c44d7ff99c32ce.svg" alt="open" width="24" height="24" />

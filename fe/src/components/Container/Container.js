@@ -6,11 +6,12 @@ import BookTicketPlane from '../Flight/BookTicketPlane'
 import SelectType from '../Flight/SelectType'
 import Hotel from '../Hotel/Hotel'
 import Suggest from './Suggest'
+import { useTranslation } from 'react-i18next'
 // import moment from 'moment'
 const initialValue = new Date()
 
 const Container = (props) => {
-  
+  const {t }= useTranslation()
   const [origin,  setorigin]= useState(()=> ({
   location_airport: "Đà Nẵng",
   code_airport: "DAN"
@@ -84,7 +85,7 @@ const Container = (props) => {
           } 
           <div style={{display: "flex", justifyContent: "center", width: "100%", flexDirection: 'column', marginTop: 50}}>
             <div style={{fontSize: 24, fontWeight: 600, textAlign: "center"}}>
-              Những chỗ nghỉ nổi bật khuyến nghị cho bạn 
+              {t('Những chỗ nghỉ nổi bật khuyến nghị cho bạn')}
             </div>
             <br />
             <Suggest />

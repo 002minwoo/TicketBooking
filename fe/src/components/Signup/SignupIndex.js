@@ -6,8 +6,10 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { useTranslation } from 'react-i18next';
 
 const SignupIndex = (props) => {
+    const {t }= useTranslation()
     const [open, setopen]= useState(()=> false)
     const myRef= useRef()
     const clickoutside= (e)=> {
@@ -42,37 +44,37 @@ const SignupIndex = (props) => {
         </React.Fragment>)
   return (
     <div style={{display: "flex",marginLeft: 20, justifyContent: "center", alignItems: "center", cursor: "pointer", borderRadius: 6, backgroundColor: "#2e89ff", color: "#fff", fontWeight: 600, userSelect: "none"}}>
-        <div style={{ padding: 10, userSelect: "none"}} onClick={()=> setopen(prev=> !prev)}>Đăng ký</div>
+        <div style={{ padding: 10, userSelect: "none"}} onClick={()=> setopen(prev=> !prev)}>{t('signup')}</div>
         {
 
             open=== true &&
             <div ref={myRef} style={{position: "absolute", width: 300, boxSizing: "border-box", padding: 16, background: "#fff", borderRadius: 6, top: "100%", right: 0, boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginTop: 10}}> 
-                <div style={{color: "#000"}}>Đăng nhập tài khoản</div>
+                <div style={{color: "#000"}}>{t('Đăng nhập tài khoản')}</div>
                 <br />
-                <div style={{marginBottom: 8, fontWeight: 600, color: "#000"}}>Email hoặc số điện thoại</div>
+                <div style={{marginBottom: 8, fontWeight: 600, color: "#000"}}>{t('Email hoặc số điện thoại')}</div>
                 <input onChange={(e)=> setdata(prev=> ({...prev, account: e.target.value}))} type="text" style={{width: "100%", padding: 10, boxSizing: "border-box", borderRadius: 6,}} />
                 <br />
                 <div style={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: 'center'}}>
                     <div style={{marginBottom: 8, fontWeight: 600, color: "#000"}}>
-                    Họ
+                    {t("surname")}
                     </div>
                 </div>
                 <input onChange={(e)=> setdata(prev=> ({...prev, firstname: e.target.value}))} type="text" style={{width: "100%", padding: 10, boxSizing: "border-box", borderRadius: 6}} />
                 <div style={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: 'center'}}>
                     <div style={{marginBottom: 8, fontWeight: 600, color: "#000"}}>
-                    Tên
+                    {t("name")}
                     </div>
                 </div>
                 <input onChange={(e)=> setdata(prev=> ({...prev, lastname: e.target.value}))} type="text" style={{width: "100%", padding: 10, boxSizing: "border-box", borderRadius: 6}} autoComplete="off" />
                 <div style={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: 'center'}}>
                     <div style={{marginBottom: 8, fontWeight: 600, color: "#000"}}>
-                    Mật khẩu
+                    {t("password")}
                     </div>
                 </div>
                 <input onChange={(e)=> setdata(prev=> ({...prev, password: e.target.value}))} type="password" style={{width: "100%", padding: 10, boxSizing: "border-box", borderRadius: 6}} />
                 <div style={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: 'center'}}>
                     <div style={{marginBottom: 8, fontWeight: 600, color: "#000"}}>
-                    Xác nhận mật khẩu
+                    {t("confirm_password")}
                     </div>
                 </div>
                 <input onChange={(e)=> setdata(prev=> ({...prev, password: e.target.value}))} type="password" style={{width: "100%", padding: 10, boxSizing: "border-box", borderRadius: 6}} />
@@ -81,16 +83,16 @@ const SignupIndex = (props) => {
                         await signup(data, setopensnackbar)
                         setopen(()=> false)
                     }} style={{padding: 10, color: "#fff", backgroundColor: "#ff5e1f", fontWeight: 600, borderRadius: 6, whiteSpace: "nowrap"}}>
-                    Đăng ký
+                    {t('signup')}
                     </div>
                     <div>
-                    <div style={{fontSize: 14, color: "#000"}}>Bạn đã có tài khoản ?</div>
-                    <div style={{fontSize: 14, fontWeight: 600, color: "#2e89ff"}}>Đăng nhập</div>
+                    <div style={{fontSize: 14, color: "#000"}}>{t("already_account")}</div>
+                    <div style={{fontSize: 14, fontWeight: 600, color: "#2e89ff"}}>{t("Đăng nhập")}</div>
                 </div>
                 
             </div>
             <div style={{width: "100%", textAlign: "center", marginTop: 5, fontWeight: 600, fontSize: 13, color: "#000"}}>
-                Hoặc đăng nhập bằng
+                {t('Hoặc đăng nhập bằng')}
             </div>
             <div style={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: 'flex-start', gap: 5, marginTop: 10}}>
                 <div onClick={()=> loginfacebook()} style={{padding: 10, backgroundColor: "#3b5998", flex: "1 1 0", borderRadius: 6, textAlign: "center", color: "#fff", fontWeight: 600, display: "flex", justifyContent: "center", alignItems: 'center',gap: 7, cursor: "pointer"}}>
