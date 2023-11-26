@@ -13,7 +13,6 @@ import NumberFormat from 'react-number-format';
 import { useTranslation } from 'react-i18next';
 export const NumberFormatCustom = React.forwardRef(function NumberFormatCustom(props, ref) {
     const { onChange, ...other } = props;
-    const { t } = useTranslation()
 
     return (
         <NumberFormat
