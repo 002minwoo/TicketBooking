@@ -6,8 +6,10 @@ import TitleSearchFlight from './TitleSearchFlight/TitleSearchFlight'
 import FilterTool from './FilterTool/FilterTool'
 import ResultFlightDetail from './ResultFIightSearch/ResultFlightSearch'
 import { CircularProgress } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
 const SearchFlight = () => {
+  const {t } =useTranslation()
   const query= useQuery()
   const [searchflight, setsearchflight]= useState(()=> [])
   const [resultsearch, setresultsearch]= useState(()=> [])
@@ -57,7 +59,7 @@ const SearchFlight = () => {
         </>
       }     
       {
-        loading=== false && resultsearch?.length <= 0 && <div style={{fontSize: 18, fontWeight: 600}}>Không tìm thấy chuyến bay phù hợp. Vui lòng tìm kiếm chuyến bay khác</div>
+        loading=== false && resultsearch?.length <= 0 && <div style={{fontSize: 18, fontWeight: 600}}>{t("Không tìm thấy chuyến bay phù hợp. Vui lòng tìm kiếm chuyến bay khác")}</div>
       }
     </div>
   )

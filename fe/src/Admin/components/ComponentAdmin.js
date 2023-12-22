@@ -7,8 +7,10 @@ import { CircularProgress, Pagination } from '@mui/material';
 import ResultSearchHotel from '../../components/ResultSearchHotel/ResultSearchHotel';
 import HotelFlightDetail from './HotelFlightDetail';
 import TimeFlightDetail from './TimeFlightDetail';
+import { useTranslation } from 'react-i18next';
 
 const ComponentAdmin = (props) => {
+  const {t } = useTranslation()
   const location = useLocation();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -50,12 +52,12 @@ const ComponentAdmin = (props) => {
                 {location?.pathname.split('/')[4] && (
                   <div style={{ width: '98%', maxWidth: 1024, display: 'flex', flexDirection: 'column', height: 'auto', alignItems: 'center' }}>
                     {location?.pathname.split('/')[4] === 'expired_flight' && (
-                      <span style={{ fontSize: 16 }}>Quá hạn từ : <span style={{ color: 'red' }}>{moment(parseInt(item.c_timeflight)).format('DD MMM YYYY')}</span></span>
+                      <span style={{ fontSize: 16 }}>{t("Quá hạn từ")} : <span style={{ color: 'red' }}>{moment(parseInt(item.c_timeflight)).format('DD MMM YYYY')}</span></span>
                     )}
                     {location?.pathname.split('/')[4] === 'completed_flight' && (
                       <div style={{ fontSize: 16, display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
-                        <span>Hoàn thành vào : <span style={{ color: 'green' }}>{moment(parseInt(item.c_timedestination)).format('DD MMM YYYY')}</span></span>
-                        <span>Số hành khách thực hiện chuyến bay: <span style={{ color: 'green' }}>{item.capacity_customer}</span></span>
+                        <span>{t("Hoàn thành vào")} : <span style={{ color: 'green' }}>{moment(parseInt(item.c_timedestination)).format('DD MMM YYYY')}</span></span>
+                        <span>{t("Số hành khách thực hiện chuyến bay")}: <span style={{ color: 'green' }}>{item.capacity_customer}</span></span>
                       </div>
                     )}
                     {location?.pathname.split('/')[4] === 'all_flight' && (
@@ -63,12 +65,12 @@ const ComponentAdmin = (props) => {
                     )}
                     {location?.pathname.split('/')[4] === 'prepare_flight' && (
                       <div style={{ fontSize: 16, display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
-                        <span style={{}}>Chuẩn bị khởi hành vào lúc : <span style={{ color: 'green' }}>{moment(parseInt(item.c_timeflight)).format('HH:mm DD MMM YYYY')}</span></span>
+                        <span style={{}}>{t("Chuẩn bị khởi hành vào lúc")} : <span style={{ color: 'green' }}>{moment(parseInt(item.c_timeflight)).format('HH:mm DD MMM YYYY')}</span></span>
                       </div>
                     )}
                     {location?.pathname.split('/')[4] === 'new_flight' && (
                       <div style={{ fontSize: 16, display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
-                        <span style={{}}>Đã được thêm vào lúc : <span style={{ color: 'green' }}>{moment(parseInt(item.timedetail)).format('HH:mm DD MMM YYYY')}</span></span>
+                        <span style={{}}>{t("Đã được thêm vào lúc")} : <span style={{ color: 'green' }}>{moment(parseInt(item.timedetail)).format('HH:mm DD MMM YYYY')}</span></span>
                       </div>
                     )}
                   </div>
@@ -96,7 +98,7 @@ const ComponentAdmin = (props) => {
                     )}
                     {location?.pathname.split('/')[4] === 'new_hotel' && (
                       <div style={{ fontSize: 16, display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%' }}>
-                        <span style={{ width: '100%' }}>Đã được thêm vào lúc : <span style={{ color: 'green' }}>{moment(parseInt(item.timedetail)).format('HH:mm DD MMM YYYY')}</span></span>
+                        <span style={{ width: '100%' }}>{t("Đã được thêm vào lúc")} : <span style={{ color: 'green' }}>{moment(parseInt(item.timedetail)).format('HH:mm DD MMM YYYY')}</span></span>
                       </div>
                     )}
                   </div>
@@ -107,7 +109,7 @@ const ComponentAdmin = (props) => {
           ))}
         </>
       )}
-      {loading === false && data?.length <= 0 && <div style={{ textAlign: 'center' }}>Không tìm thấy kết quả nào phù hợp</div>}
+      {loading === false && data?.length <= 0 && <div style={{ textAlign: 'center' }}>{t("Không tìm thấy kết quả nào phù hợp")}</div>}
       <Pagination
         count={totalPages}
         page={currentPage}

@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 import { M1, M2 } from "../SearchFlight"
+import { useTranslation } from "react-i18next"
 
 const F2= (props)=> {
+    const {t }= useTranslation()
     const [opensuggest, setopensuggest]= useState(()=> false)
     const myRef= useRef()
     const outsidefunction= (e)=> {
@@ -17,7 +19,7 @@ const F2= (props)=> {
     return (
       <div className="sqo-1 oifairo-q2" ref={myRef}>
         <div className="qra-1" onClick={()=> setopensuggest(()=> true)}>
-          Thời gian bay
+          {t("Thời gian bay")}
         </div>
         <div className="dko-1">
   
@@ -27,16 +29,16 @@ const F2= (props)=> {
           <div className="dsqeo-1" data-check="1">
             <div className="ddoeqw-1">
               <div className="teai-1"> 
-                Giờ cất cánh
+                {t("Giờ cất cánh")}
               </div>
               <div className="sjwroe-1">
                 <div>
-                  <M1 uid={1} settimeorigin={props.settimeorigin} b={"Buổi sáng sớm"} t={"00:00 - 06:00"} />
-                  <M1 uid={2} settimeorigin={props.settimeorigin} b={"Buổi sáng"} t={"06:00 - 12:00"} />
+                  <M1 uid={1} settimeorigin={props.settimeorigin} b={t("Buổi sáng sớm")} t={"00:00 - 06:00"} />
+                  <M1 uid={2} settimeorigin={props.settimeorigin} b={t("Buổi sáng")} t={"06:00 - 12:00"} />
                 </div>
                 <div>
-                  <M1 uid={3} settimeorigin={props.settimeorigin} b={"Buổi chiều"} t={"12:00 - 18:00"} />
-                  <M1 uid={4} settimeorigin={props.settimeorigin} b={"Buổi tối"} t={"18:00 - 24:00"} />
+                  <M1 uid={3} settimeorigin={props.settimeorigin} b={t("Buổi chiều")} t={"12:00 - 18:00"} />
+                  <M1 uid={4} settimeorigin={props.settimeorigin} b={t("Buổi tối")} t={"18:00 - 24:00"} />
                 </div>
               </div>
             </div>
@@ -45,16 +47,16 @@ const F2= (props)=> {
   
             <div className="ddoeqw-1">
               <div className="teai-1"> 
-                Giờ hạ cánh
+                {t("Giờ hạ cánh")}
               </div>
               <div className="sjwroe-1">
                 <div >
-                  <M2 uid={1} settimedestination={props.settimedestination} b={"Buổi sáng sớm"} t={"00:00 - 06:00"} />
-                  <M2 uid={2} settimedestination={props.settimedestination} b={"Buổi sáng"} t={"06:00 - 12:00"} />
+                  <M2 uid={1} settimedestination={props.settimedestination} b={t("Buổi sáng sớm")} t={"00:00 - 06:00"} />
+                  <M2 uid={2} settimedestination={props.settimedestination} b={t("Buổi sáng")} t={"06:00 - 12:00"} />
                 </div>
                 <div>
-                  <M2 uid={3} settimedestination={props.settimedestination} b={"Buổi chiều"} t={"12:00 - 18:00"} />
-                  <M2 uid={4} settimedestination={props.settimedestination} b={"Buổi tối"} t={"18:00 - 24:00"} />
+                  <M2 uid={3} settimedestination={props.settimedestination} b={t("Buổi chiều")} t={"12:00 - 18:00"} />
+                  <M2 uid={4} settimedestination={props.settimedestination} b={t("Buổi tối")} t={"18:00 - 24:00"} />
                 </div>
               </div>
             </div>

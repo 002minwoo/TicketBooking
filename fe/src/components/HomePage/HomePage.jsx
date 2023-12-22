@@ -4,6 +4,7 @@ import picture_home from "../../assets/picture_home.jpg";
 import AOS from "aos";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 AOS.init({
   duration: 1000,
 });
@@ -266,16 +267,17 @@ const Co = (props) => {
   );
 };
 const Footer = (props) => {
+  const {t }= useTranslation()
   const ar1 = [
-    "Trung tâm trợ giúp",
-    "Câu hỏi thường gặp",
-    "Chính sách bảo mật",
-    "Chính sách về cookie",
-    "Điều khoản sử dụng",
+    t("Trung tâm trợ giúp"),
+    t("Câu hỏi thường gặp"),
+    t("Chính sách bảo mật"),
+    t("Chính sách về cookie"),
+    t("Điều khoản sử dụng"),
   ];
-  const ar2 = ["PointsMAX", "Tuyển dụng", "Báo chí", "Nhật ký mạng"];
-  const ar3 = ["Quốc gia", "Thành phố"];
-  const ar4 = ["Đối tác trên hiragana", "Đối tác liên kết", "Đối tác kết nối"];
+  const ar2 = ["PointsMAX", t("Tuyển dụng"), t("Báo chí"), t("Nhật ký mạng")];
+  const ar3 = [t("Quốc gia"), t("Thành phố")];  
+  const ar4 = [t("Đối tác trên hiragana"), t("Đối tác liên kết"), t("Đối tác kết nối")];
   return (
     <div
       style={{
@@ -288,11 +290,11 @@ const Footer = (props) => {
         height: "40vh",
       }}
     >
-      <ComponentFooter title="Trợ giúp" array={ar1}></ComponentFooter>
-      <ComponentFooter title="Về chúng tôi" array={ar2}></ComponentFooter>
-      <ComponentFooter title="Điểm du lịch" array={ar3}></ComponentFooter>
+      <ComponentFooter title={t("Trợ giúp")} array={ar1}></ComponentFooter>
+      <ComponentFooter title={t("Về chúng tôi")} array={ar2}></ComponentFooter>
+      <ComponentFooter title={t("Điểm du lịch")} array={ar3}></ComponentFooter>
       <ComponentFooter
-        title="Đối tác của chúng tôi"
+        title={t("Đối tác của chúng tôi")}
         array={ar4}
       ></ComponentFooter>
     </div>

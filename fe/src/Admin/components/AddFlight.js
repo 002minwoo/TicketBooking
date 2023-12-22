@@ -200,7 +200,7 @@ const AddFlight = (props) => {
                         inputComponent: NumberFormatCustom,
                     }}
                     color={flight.cost_adult <= 0 ? "error" : "primary"} helperText={flight.cost_adult <= 0 ? <div style={{ color: "red" }}>Enter your cost_adult</div> : <></>}
-                    onChange={(e) => setflight(prev => ({ ...prev, cost_adult: e.target.value }))} id="outlined-basic" label="Giá vé cho người lớn (Đơn vị được tính theo VND)" variant="outlined" />
+                    onChange={(e) => setflight(prev => ({ ...prev, cost_adult: e.target.value }))} id="outlined-basic" label={t("Giá vé cho người lớn (Đơn vị được tính theo VND)")} variant="outlined" />
             </Box>
             <Box
                 component="form"

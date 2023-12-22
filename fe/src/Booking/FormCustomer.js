@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const FormCustomer = (props) => {
+  const { t } = useTranslation()
   const [user, setuser] = useState(() => ({
     nickname: "",
     name: "",
@@ -223,7 +225,7 @@ const FormCustomer = (props) => {
     "Zambia",
     "Zimbabwe",
   ];
-  
+
   return (
     <div
       style={{
@@ -243,7 +245,7 @@ const FormCustomer = (props) => {
       <br />
 
       <div style={{ color: "#ffa500", fontWeight: 600, fontSize: 14 }}>
-        Tên không dấu (Đệm Tên Họ, VD: Thi Ngoc Anh Nguyen)
+        {t("Tên không dấu (Đệm Tên Họ, VD: Thi Ngoc Anh Nguyen)")}
       </div>
       <br />
       <div>
@@ -255,7 +257,7 @@ const FormCustomer = (props) => {
             marginBottom: 8,
           }}
         >
-          Danh xưng
+          {t("Danh xưng")}
         </div>
         <div>
           <input
@@ -298,7 +300,7 @@ const FormCustomer = (props) => {
               marginBottom: 8,
             }}
           >
-            Họ (vd: Nguyen)
+            {t("Họ (vd: Nguyen)")}
           </div>
           <div style={{ width: "100%" }}>
             <input
@@ -319,7 +321,7 @@ const FormCustomer = (props) => {
               <div style={{ color: "red", fontSize: 14 }}>Enter surname</div>
             )}
             <div style={{ fontSize: 12, color: "#3a3b3c" }}>
-              như trên CMND (không dấu)
+              {t("như trên CMND (không dấu)")}
             </div>
           </div>
         </div>
@@ -332,7 +334,7 @@ const FormCustomer = (props) => {
               marginBottom: 8,
             }}
           >
-            Tên đệm và tên (vd: Thi Ngoc Anh)
+            {t("Tên đệm và tên (vd: Thi Ngoc Anh)")}
           </div>
           <div style={{ width: "100%" }}>
             <input
@@ -353,7 +355,7 @@ const FormCustomer = (props) => {
               <div style={{ color: "red", fontSize: 14 }}>Enter name</div>
             )}
             <div style={{ fontSize: 12, color: "#3a3b3c" }}>
-              như trên CMND (không dấu)
+              {t("như trên CMND (không dấu)")}
             </div>
           </div>
         </div>
@@ -366,7 +368,7 @@ const FormCustomer = (props) => {
               marginBottom: 8,
             }}
           >
-            Ngày sinh
+            {t("Ngày sinh")}
           </div>
           <div style={{ width: "100%" }}>
             <div
@@ -392,7 +394,7 @@ const FormCustomer = (props) => {
                     border: "1px solid #dfe1e2",
                   }}
                 >
-                  <option value="">Chọn ngày sinh</option>
+                  <option value="">{t("Chọn ngày sinh")}</option>
                   {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
                     <option key={day} value={day}>
                       {day}
@@ -409,7 +411,7 @@ const FormCustomer = (props) => {
                 )}
               </div>
               <div style={{ flex: "2 1 0" }}>
-              <select
+                <select
                   onBlur={() => handleBlur()}
                   onChange={(e) =>
                     setuser((prev) => ({ ...prev, month_birth: e.target.value }))
@@ -421,7 +423,7 @@ const FormCustomer = (props) => {
                     border: "1px solid #dfe1e2",
                   }}
                 >
-                  <option value="">Chọn tháng sinh</option>
+                  <option value="">{t("Chọn tháng sinh")}</option>
                   {Array.from({ length: 12 }, (_, i) => i + 1).map((day) => (
                     <option key={day} value={day}>
                       {day}
@@ -437,7 +439,7 @@ const FormCustomer = (props) => {
                 )}
               </div>
               <div style={{ flex: "1 1 0" }}>
-              <select
+                <select
                   onBlur={() => handleBlur()}
                   onChange={(e) =>
                     setuser((prev) => ({ ...prev, year_birth: e.target.value }))
@@ -449,7 +451,7 @@ const FormCustomer = (props) => {
                     border: "1px solid #dfe1e2",
                   }}
                 >
-                  <option value="">Chọn năm sinh</option>
+                  <option value="">{t("Chọn năm sinh")}</option>
                   {Array.from({ length: 100 }, (_, i) => i + 1).map((year) => (
                     <option key={year} value={parseInt(year) + 1923}>
                       {parseInt(year) + 1923}
@@ -466,7 +468,7 @@ const FormCustomer = (props) => {
               </div>
             </div>
             <div style={{ fontSize: 12, color: "#3a3b3c" }}>
-              Hành khách người lớn (trên 12 tuổi)
+              {t("Hành khách người lớn (trên 12 tuổi)")}
             </div>
           </div>
         </div>
@@ -479,25 +481,25 @@ const FormCustomer = (props) => {
               marginBottom: 8,
             }}
           >
-            Quốc tịch
+            {("Quốc tịch")}
           </div>
           <div style={{ width: "100%" }}>
-          <select
+            <select
               onBlur={() => handleBlur()}
               onChange={(e) => setuser((prev) => ({ ...prev, nationality: e.target.value }))}
               value={user.nationality}
               style={{ width: "100%", height: 40, borderRadius: 8, border: "1px solid #dfe1e2" }}
             >
-              <option value="">Chọn quốc tịch</option>
+              <option value="">{t("Chọn quốc tịch")}</option>
               {nationalityOptions.map((nationality) => (
                 <option key={nationality} value={nationality}>
                   {nationality}
                 </option>
               ))}
             </select>
-            {user.nationality?.length <= 0 && <div style={{ color: "red", fontSize: 14 }}>Chọn quốc tịch</div>}
+            {user.nationality?.length <= 0 && <div style={{ color: "red", fontSize: 14 }}>{t("Chọn quốc tịch")}</div>}
             <div style={{ fontSize: 12, color: "#3a3b3c" }}>
-              Ví dụ: Việt Nam
+              {t("Ví dụ: Việt Nam")}
             </div>
           </div>
         </div>

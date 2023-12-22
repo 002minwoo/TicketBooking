@@ -10,12 +10,14 @@ import axios from "axios";
 import { API_URL } from "../config";
 import swal from "sweetalert";
 import ErrorPage from "../Error/Error";
+import { useTranslation } from "react-i18next";
 
 const stripePromise = loadStripe(
   "pk_test_51KuWAjDq3U6SJ691wGf9YHe0wZC0O51ddczJ4oSBnGTwYgx9VZW4s1GIie1jWY4TiLHoEzuPzdQqtalMuA9twxoS00wCLbL1O7"
 );
 
 const Booking = (props) => {
+  const { t } = useTranslation()
   const [error, setError] = useState(false);
   const location = useLocation();
   const [total, setTotal] = useState();
@@ -75,16 +77,16 @@ const Booking = (props) => {
     if (location?.state) {
       setTotal(
         parseInt(location.state?.ps?.split(".")[0]) *
-          parseInt(location.state?.cost_adult) +
-          parseInt(location.state?.ps?.split(".")[1]) *
-            parseInt(location.state?.cost_kid) +
-          parseInt(location.state?.ps?.split(".")[2]) *
-            parseInt(location.state?.cost_baby)
+        parseInt(location.state?.cost_adult) +
+        parseInt(location.state?.ps?.split(".")[1]) *
+        parseInt(location.state?.cost_kid) +
+        parseInt(location.state?.ps?.split(".")[2]) *
+        parseInt(location.state?.cost_baby)
       );
       setAmount(
         parseInt(location.state?.ps?.split(".")[0]) +
-          parseInt(location.state?.ps?.split(".")[1]) +
-          parseInt(location.state?.ps?.split(".")[2])
+        parseInt(location.state?.ps?.split(".")[1]) +
+        parseInt(location.state?.ps?.split(".")[2])
       );
     } else {
       // navigate("")
@@ -108,9 +110,9 @@ const Booking = (props) => {
           <>
             <div style={{ width: "100%", maxWidth: 1024 }}>
               <div style={{ fontSize: 24, fontWeight: 600 }}>
-                Đặt chỗ của tôi
+                {t("Đặt chỗ của tôi")}
               </div>
-              <div>Điền thông tin của bạn và các hành khách</div>
+              <div>{t("Điền thông tin của bạn và các hành khách")}</div>
             </div>
             <br />
             <div
@@ -121,7 +123,7 @@ const Booking = (props) => {
                 maxWidth: 1024,
               }}
             >
-              Thông tin liên hệ
+              {t("Thông tin liên hệ")}
             </div>
             <br />
             <div
@@ -135,7 +137,7 @@ const Booking = (props) => {
                 padding: 10,
               }}
             >
-              <div>Thông tin liên hệ (nhận vé/ phiếu thanh toán)</div>
+              <div>{t("Thông tin liên hệ (nhận vé/ phiếu thanh toán)")}</div>
             </div>
             <div
               style={{
@@ -155,7 +157,7 @@ const Booking = (props) => {
             >
               <div className="sdfadfsasdaas" style={{ width: "49%" }}>
                 <div style={{ marginBottom: 10, fontWeight: 600 }}>
-                  Họ (vd: Nguyen)
+                  {t("Họ (vd: Nguyen)")}
                 </div>
                 <input
                   onChange={(e) =>
@@ -170,12 +172,12 @@ const Booking = (props) => {
                   }}
                 />
                 <div style={{ color: "#687176", fontSize: 12, marginTop: 4 }}>
-                  như trên CMND (không dấu)
+                  {t("như trên CMND (không dấu)")}
                 </div>
               </div>
               <div className="sdfadfsasdaas" style={{ width: "49%" }}>
                 <div style={{ marginBottom: 10, fontWeight: 600 }}>
-                  Tên đệm & tên (vd: Thi Ngoc Anh)
+                  {t("Tên đệm & tên (vd: Thi Ngoc Anh)")}
                 </div>
                 <input
                   onChange={(e) =>
@@ -190,12 +192,12 @@ const Booking = (props) => {
                   }}
                 />
                 <div style={{ color: "#687176", fontSize: 12, marginTop: 4 }}>
-                  như trên CMND (không dấu)
+                  {t("như trên CMND (không dấu)")}
                 </div>
               </div>
               <div className="sdfadfsasdaas" style={{ width: "49%" }}>
                 <div style={{ marginBottom: 10, fontWeight: 600 }}>
-                  Điện thoại di động
+                  {t("Điện thoại di động")}
                 </div>
                 <input
                   onChange={(e) =>
@@ -213,7 +215,7 @@ const Booking = (props) => {
                   }}
                 />
                 <div style={{ color: "#687176", fontSize: 12, marginTop: 4 }}>
-                  VD: +84 901234567 trong đó (+84) là mã quốc gia và 901234567
+                  VD: +84 901234567 {t("trong đó")} (+84) {t("là mã quốc gia và")} 901234567
                   là số di động
                 </div>
               </div>
@@ -232,7 +234,7 @@ const Booking = (props) => {
                   }}
                 />
                 <div style={{ color: "#687176", fontSize: 12, marginTop: 4 }}>
-                  VD: email@example.com
+                  {t("VD")}: email@example.com
                 </div>
               </div>
             </div>
@@ -246,7 +248,7 @@ const Booking = (props) => {
                 maxWidth: 1024,
               }}
             >
-              Thông tin hành khách
+              {t("Thông tin hành khách")}
             </div>
             <br />
             {location.state.ps && (
@@ -257,7 +259,7 @@ const Booking = (props) => {
                   <FormCustomer
                     setaccept={setaccept}
                     setalluser={setalluser}
-                    title={"Người lớn " + (parseInt(key) + 1)}
+                    title={t("Người lớn") + " " + (parseInt(key) + 1)}
                     key={key}
                     {...item}
                   />
@@ -269,7 +271,7 @@ const Booking = (props) => {
                   <FormCustomer
                     setaccept={setaccept}
                     setalluser={setalluser}
-                    title={"Trẻ em " + (parseInt(key) + 1)}
+                    title={t("Trẻ em") + " " + (parseInt(key) + 1)}
                     {...item}
                     key={key}
                   />
@@ -280,7 +282,7 @@ const Booking = (props) => {
                   <FormCustomer
                     setaccept={setaccept}
                     setalluser={setalluser}
-                    title={"Em bé " + (parseInt(key) + 1)}
+                    title={t("Em bé") + " " + (parseInt(key) + 1)}
                     {...item}
                     key={key}
                   />
@@ -297,7 +299,7 @@ const Booking = (props) => {
                   <FormCustomer
                     setaccept={setaccept}
                     setalluser={setalluser}
-                    title={"Người lớn " + (parseInt(key) + 1)}
+                    title={t("Người lớn") + " " + (parseInt(key) + 1)}
                     key={key}
                     {...item}
                   />
@@ -311,7 +313,7 @@ const Booking = (props) => {
                   <FormCustomer
                     setaccept={setaccept}
                     setalluser={setalluser}
-                    title={"Trẻ em " + (parseInt(key) + 1)}
+                    title={t("Trẻ em") + " " + (parseInt(key) + 1)}
                     {...item}
                     key={key}
                   />
@@ -324,12 +326,12 @@ const Booking = (props) => {
                 <button
                   onClick={() => {
                     swal(
-                      "Thông báo",
-                      "Bạn đã xác nhận những thông tin ở trên là chính xác",
+                      t("Thông báo"),
+                      t("Bạn đã xác nhận những thông tin ở trên là chính xác"),
                       {
                         buttons: {
-                          ok: "Xác nhận",
-                          cancel: "Đóng",
+                          ok: t("Xác nhận"),
+                          cancel: t("Đóng"),
                         },
                       }
                     ).then((value) => {
@@ -356,7 +358,7 @@ const Booking = (props) => {
                     opacity: accept === true ? 1 : 0.5,
                   }}
                 >
-                  Xác nhận
+                  {t("Xác nhận")}
                 </button>
               )}
               {isConfirm === true && (
@@ -383,7 +385,7 @@ const Booking = (props) => {
                   }}
                 >
                   {loading === false ? (
-                    "Thanh toán"
+                    t("Thanh toán")
                   ) : (
                     <div
                       style={{
