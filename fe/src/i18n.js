@@ -186,6 +186,11 @@ i18n
                     "Chuyến bay đã quá hạn": "The flight is overdue",
                     "Chuyến bay mới": "New flight",
                     "Chuyến bay đã hoàn thành": "Flight completed",
+                    "Thanh toán thành công": "Payment success",
+                    "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi": "Thank you for using our service",
+                    "Quay lại trang chủ": "Back to home",
+                    "Thanh toán thất bại": "Payment failed",
+                    "Rất tiếc, thanh toán của bạn không thành công. Vui lòng thử lại sau hoặc liên hệ với chúng tôi để biết thêm chi tiết": "Sorry, your payment was not successful. Please try again later or contact us for more details"
                     // Add more English translations as needed
                 },
             },
@@ -279,7 +284,10 @@ i18n
                     "Nguồn sạc / cổng USB": "Nguồn sạc / cổng USB",
                     "Lọc tiền vé trong khoảng": "Lọc tiền vé trong khoảng",
                     "Sắp xếp": "Sắp xếp",
-                    "Thời gian bay": "Thời gian bay"
+                    "Thời gian bay": "Thời gian bay",
+                    "Thanh toán thành công": "Thanh toán thành công",
+                    "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi": "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi",
+                    "Quay lại trang chủ": "Quay lại trang chủ"
                     // Add more Vietnamese translations as needed
                 },
             },
